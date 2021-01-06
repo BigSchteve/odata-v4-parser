@@ -24,7 +24,7 @@
     "pretest": "npm run build",
     "test": "rimraf report && mocha test/**/*.spec.js --reporter mochawesome --reporter-options reportDir=report,reportFilename=index,reportTitle=\"JayStack OData V4 Parser\"",
     "prepublish": "npm run test",
-    "postinstall": "tsc --outDir ./build"
+    "postinstall": "npm run build"
   },
   "devDependencies": {
     "chai": "^4.1.2",
