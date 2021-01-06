@@ -18,6 +18,13 @@ describe("Parser", () => {
     expect(ast.value.options[0].type).to.equal("Filter");
   });
 
+  it("should parse query string 2", () => {
+    var parser = new Parser();
+    var ast = parser.query("$apply=groupby((name))");
+    console.log(ast.value.options[0])
+    expect(ast.value.options[0].type).to.equal("Apply");
+  });
+
   it("should parse multiple orderby params", () => {
     var parser = new Parser();
     var ast = parser.query("$orderby=foo,bar");

@@ -160,7 +160,8 @@ export enum TokenType {
     ODataUri = "ODataUri",
     Batch = "Batch",
     Entity = "Entity",
-    Metadata = "Metadata"
+    Metadata = "Metadata",
+    Apply = "Apply"
 }
 
 export const LexerTokenType = TokenType;
@@ -406,7 +407,7 @@ export namespace Lexer {
         return Utils.equals(value, index, "geometry") ? index + 8 : index;
     }
     export function identifierLeadingCharacter(value: number): boolean {
-        return Lexer.ALPHA(value) || value === 0x5f;
+        return Lexer.ALPHA(value) || value === 0x5f || value === 0x28 || value === 0x29;
     }
     export function identifierCharacter(value: number): boolean {
         return Lexer.identifierLeadingCharacter(value) || Lexer.DIGIT(value);
