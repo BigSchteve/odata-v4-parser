@@ -23,7 +23,8 @@
     "typedoc": "typedoc --name \"JayStack OData v4 Parser\" --excludeExternals --excludeNotExported --hideGenerator --excludeExternals --excludePrivate --out docs src",
     "pretest": "npm run build",
     "test": "rimraf report && mocha test/**/*.spec.js --reporter mochawesome --reporter-options reportDir=report,reportFilename=index,reportTitle=\"JayStack OData V4 Parser\"",
-    "prepublish": "npm run test"
+    "prepublish": "npm run test",
+    "postinstall": "tsc --outDir ./build"
   },
   "devDependencies": {
     "chai": "^4.1.2",
